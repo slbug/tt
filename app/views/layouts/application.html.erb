@@ -20,16 +20,16 @@
       <%= form_for @page do |f| %>
         Modify:
         <br>
-        <%= f.label :title %><%= f.text_field :title, size: 250 %>
+        <%= f.label :title %><%= f.text_field :title, size: 200 %>
         <br>
-        <%= f.label :font %><%= f.text_field :font, size: 250 %>
+        <%= f.label :font, 'Page font' %><%= f.text_field :font, size: 200 %>
         <hr>
 
         Add or Modify styles:
         <br>
-        <%= f.label :selector %><%= f.text_field :selector, size: 250 %>
+        <%= f.label :selector, 'Selector (any css selector)' %><%= f.text_field :selector, size: 200 %>
         <br>
-        <%= f.label :style %><%= f.text_field :style, size: 250 %>
+        <%= f.label :style, 'Styles (Any css expressions comma separated. Example: "color: black; font-weight: 400;")' %><%= f.text_field :style, size: 200 %>
         <br>
         <%= f.submit 'Apply' %>
       <% end %>
