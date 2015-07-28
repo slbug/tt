@@ -1,0 +1,14 @@
+<%= content_for :clone_page do %>
+  <%= form_for @page do |f| %>
+    <%= f.label :title%><%= f.text_field :title, size: 250 %>
+    <br>
+    <%= f.label :title %><%= f.text_field :font, size: 250 %>
+    <br>
+    <%= f.label :content%><br><%= f.text_area :content, rows: 100, cols: 200 %>
+    <br>
+    <%= f.label :stylesheet, 'Stylesheet (Read only, update it after save)' %><br><%= f.text_area :stylesheet, rows: 50, cols: 200, readonly: true %>
+    <br>
+    <%= hidden_field_tag :page_id, @original_page.id %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

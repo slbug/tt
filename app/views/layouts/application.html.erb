@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= page_title(@page) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if content_for?(:clone_page) %>
+    <section><%= yield(:clone_page) %></section>
+  <% else %>
+    <section id="controls">
+      Current Pages:
+      <% Page.all.each do |page| %>
+        <%= link_to page.title, page %>&nbsp;
+      <% end %>
+
+      <%= form_for @page do |f| %>
+        Modify:
+        <br>
+        <%= f.label :title %><%= f.text_field :title, size: 250 %>
+        <br>
+        <%= f.label :font %><%= f.text_field :font, size: 250 %>
+        <hr>
+
+        Add or Modify styles:
+        <br>
+        <%= f.label :selector %><%= f.text_field :selector, size: 250 %>
+        <br>
+        <%= f.label :style %><%= f.text_field :style, size: 250 %>
+        <br>
+        <%= f.submit 'Apply' %>
+      <% end %>
+
+      <%= link_to 'Show current styles', [:styles, @page] %> |
+      <%= link_to 'Copy Page', [:clone, @page] %>
+    </section>
+
+    <section id="main" style="<%= font_styles(@page) %>"><%= yield %></section>
+  <% end %>
+
+</body>
+</html>

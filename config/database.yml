@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: tt_development
+  username: tt
+  password: tt
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: tt_test
+  username: tt
+  password: tt
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: tt_production
+  username: tt
+  password: <%= ENV['BREWERIANA_DATABASE_PASSWORD'] %>
