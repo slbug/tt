@@ -29,7 +29,7 @@
         <br>
         <%= f.label :selector, 'Selector (any css selector)' %><%= f.text_field :selector, size: 200 %>
         <br>
-        <%= f.label :style, 'Styles (Any css expressions comma separated. Example: "color: black; font-weight: 400;")' %><%= f.text_field :style, size: 200 %>
+        <%= f.label :style, 'Styles (Any css expressions semicolon separated. Example: "color: black; font-weight: 400;")' %><%= f.text_field :style, size: 200 %>
         <br>
         <%= f.submit 'Apply' %>
       <% end %>
